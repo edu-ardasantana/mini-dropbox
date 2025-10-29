@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Mini Dropbox Distribuído</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1 id="title">Mini Dropbox</h1>
+  <div class="box-container">
+    <div class="box-1">
+        <h3>Upload de arquivos</h3>
+        <input class="btn-upload" type="file" id="fileInput" />
+        <button class="btn-enviar" onclick="uploadFile()">Enviar</button>
+    </div>
+  
+    <div class="box-2">
+        <h3>Arquivos disponíveis para download</h3>
+        <ul id="fileList"></ul>
+    </div>
+  </div>
+    
+  
+
+  <script>
+    async function uploadFile() {
+      const fileInput = document.getElementById("fileInput");
+      const file = fileInput.files[0];
+      if (!file) return alert("Selecione um arquivo");
+
+      const formData = new FormData();
+      formData.append("file", file);
+
+      await fetch("http://127.0.0.1:8000/upload", {
+        method: "POST",
+        body: formData
+      });
+
+      alert("Arquivo enviado com sucesso!");
+      listFiles();
+    }
+
+    async function listFiles() {
+      const res = await fetch("http://127.0.0.1:8000/files");
+      const data = await res.json();
+
+      const list = document.getElementById("fileList");
+      list.innerHTML = "";
+      data.files.forEach(file => {
+        const li = document.createElement("li");
+        li.innerHTML = `<button onclick="downloadFile('${file}')">⬇️ ${file}</button>`;
+        list.appendChild(li);
+      });
+    }
+
+    async function downloadFile(name) {
+      window.location.href = `http://127.0.0.1:8000/download/${name}`;
+    }
+
+    listFiles();
+  </script>
+</body>
+</html>

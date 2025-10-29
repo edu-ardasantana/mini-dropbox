@@ -1,0 +1,66 @@
+/* definindo a cor do background para #4A90E2 */
+body {
+    background-color: #4A90E2;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#title{
+    text-align: center;
+    
+    color: white;
+}
+
+.box-container{
+    /* centralizando as duas caixas no meio, uma em cima da outra*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.box-1{
+    width: 400px;
+    border: 2px solid #4A90E2;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.box-2 {
+    width: 800px;
+    border: 2px solid #4A90E2;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+h3 {
+    color: #4A90E2;
+}
+
+.btn-enviar{
+    background-color: #4A90E2;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+ul{
+    list-style-type: none;
+    padding: 0;
+}
+
