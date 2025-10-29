@@ -64,7 +64,7 @@ Aplicação de armazenamento de arquivos distribuído que permite upload, listag
    - O download iniciará automaticamente
 
 
-## 🏗️ Justificativa Técnica: Escalabilidade e Tolerância a Falhas
+## Justificativa Técnica: Escalabilidade e Tolerância a Falhas
 
 ### Escalabilidade
 
